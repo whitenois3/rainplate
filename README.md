@@ -1,6 +1,6 @@
 <img align="right" width="150" height="150" top="100" src="./public/rainplate_no_bg.png">
 
-# rainplate • [![ci](https://github.com/whitenois3/rainplate/actions/workflows/ci.yaml/badge.svg)](https://github.com/whitenois3/rainplate/actions/workflows/ci.yaml) ![license](https://img.shields.io/github/license/whitenois3/rainplate?label=license) ![version](https://img.shields.io/github/package-json/v/whitenois3/rainplate)
+# rainplate • [![ci](https://github.com/whitenois3/rainplate/actions/workflows/ci.yaml/badge.svg)](https://github.com/whitenois3/rainplate/actions/workflows/ci.yaml) ![license](https://img.shields.io/badge/license-Unlicense-darkgrey) ![version](https://img.shields.io/github/package-json/v/whitenois3/rainplate)
 
 A **Versatile**, **Extensible** Dapp Boilerplate built with [Rainbowkit](https://www.rainbowkit.com/), [Next.js](https://nextjs.org/), and [Chakra-ui](https://chakra-ui.com/).
 
