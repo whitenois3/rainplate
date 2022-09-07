@@ -1,10 +1,12 @@
-import { createTheme, NextUIProvider } from '@nextui-org/react'
+import { ChakraProvider } from '@chakra-ui/react'
+import Head from "next/head";
+import { theme } from '../styles';
 import { darkTheme, DisclaimerComponent, getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import '@rainbow-me/rainbowkit/styles.css'
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
+import 'material-react-toastify/dist/ReactToastify.css';
+
 import type { AppProps } from 'next/app'
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
-import '../styles/globals.scss'
 
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
@@ -18,7 +20,7 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'NextJS + Rainbowkit Template',
+  appName: 'Rainplate',
   chains
 });
 
@@ -28,9 +30,6 @@ const wagmiClient = createClient({
   provider
 })
 
-const darkThemeNextUi = createTheme({
-  type: 'dark',
-})
 
 const Disclaimer: DisclaimerComponent = ({ Text, Link }) => (
   <Text>
@@ -43,19 +42,16 @@ const Disclaimer: DisclaimerComponent = ({ Text, Link }) => (
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextThemesProvider
-      defaultTheme="system"
-      attribute="class"
-      value={{
-        dark: darkThemeNextUi.className
-      }}
-    >
-      <NextUIProvider>
-        <WagmiConfig client={wagmiClient}>
+    <ChakraProvider resetCSS theme={theme}>
+      <Head>
+        <title>Rainplate</title>
+      </Head>
+      <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider
             chains={chains}
             theme={darkTheme({
               ...darkTheme.accentColors.green,
+              accentColorForeground: 'white',
               borderRadius: 'large',
             })}
             appInfo={{
@@ -65,8 +61,25 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </RainbowKitProvider>
         </WagmiConfig>
-      </NextUIProvider>
-    </NextThemesProvider>
+      <style jsx global>{`
+        html,
+        body {
+          min-height: 100%;
+          height: 100%;
+          font-family: Azeret Mono, monospace;
+        }
+
+        #__next {
+          height: 100%;
+          min-height: 100%;
+        }
+
+        #__next > div {
+          height: 100%;
+          min-height: 100%;
+        }
+      `}</style>
+    </ChakraProvider>
   )
 }
 

@@ -1,8 +1,10 @@
-import { Col, Container, Grid, Text } from '@nextui-org/react';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { Box, Container, Flex, Grid, GridItem, Heading } from '@chakra-ui/react';
+// import { Col, Container, Grid, Text } from '@nextui-org/react';
 import Spline from '@splinetool/react-spline';
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
+
+import { Navbar } from "../components";
 
 const Home: NextPage = () => {
   const [mounted, setMounted] = useState(false);
@@ -10,52 +12,46 @@ const Home: NextPage = () => {
   useEffect(() => setMounted(true), []);
 
   return (
-    <Container display='flex' justify='center' style={{ height: '100%' }} gap={5}>
-      <Grid.Container gap={2} alignItems='center' style={{ marginTop: '1em' }}>
-        <Grid xs={9}>
-          <Text h1>Rainplate</Text>
-        </Grid>
-        <Grid xs={3} justify='flex-end'>
-          <ConnectButton />
-        </Grid>
-      </Grid.Container>
+    <Flex paddingX={12} flexDirection="column" paddingY={0} margin={0} width="100%" height="100%" maxWidth="100%" maxHeight="100%" gap={4}>
+      <Navbar />
 
-      <Grid.Container gap={2}>
-        <Grid xs={6} alignItems='center'>
-          <Col>
-            <Text
-              h1
-              css={{
-                textGradient: "45deg, $blue600 -20%, $pink600 50%",
-              }}
-              weight="bold"
-            >
-              NextJS
-            </Text>
-            <Text
-              h1
-              css={{
-                textGradient: "45deg, $purple600 -20%, $pink600 100%",
-              }}
-              weight="bold"
-            >
-              RainbowKit
-            </Text>
-            <Text
-              h1
-              css={{
-                textGradient: "45deg, $yellow600 -20%, $red600 100%",
-              }}
-              weight="bold"
-            >
-              Rainplate
-            </Text></Col>
+      <Flex flexGrow={1} flexFlow="row" alignContent="space-between" gap={2}>
+        <Grid alignItems='center'>
+          <GridItem>
+            <Heading
+              paddingY={2}
+              textDecoration="none"
+              as="h1"
+              textColor="blue.500"
+              fontWeight="bold"
+              >
+                Nextjs
+            </Heading>
+            <Heading
+              paddingY={2}
+              textDecoration="none"
+              as="h1"
+              textColor="purple.500"
+              fontWeight="bold"
+              >
+                RainbowKit
+            </Heading>
+            <Heading
+              paddingY={2}
+              textDecoration="none"
+              as="h1"
+              textColor="orange.400"
+              fontWeight="bold"
+              >
+                Rainplate
+            </Heading>
+          </GridItem>
         </Grid>
-        <Grid xs={6}>
-          {mounted && <Spline height={'700px'} width={'700px'} scene="https://prod.spline.design/KEGKpuSmhfmsFczx/scene.splinecode" />}
-        </Grid>
-      </Grid.Container>
-    </Container>
+        <Box flex='1' m="auto" px={8}>
+          {mounted && <Spline height="300px" width="300px" style={{ pointerEvents: 'none', maxWidth: '600px', maxHeight: '600px', width: '600px', marginLeft: "auto", marginTop: "auto", marginBottom: 'auto', height: '600px' }} scene="https://prod.spline.design/KEGKpuSmhfmsFczx/scene.splinecode" />}
+        </Box>
+      </Flex>
+    </Flex>
   )
 }
 
