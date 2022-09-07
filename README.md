@@ -1,4 +1,4 @@
-<img align="right" width="150" height="150" top="100" src="./public/rainplate_no_bg.png">
+<img align="right" width="150" height="150" top="100" src="./public/rainplate.jpg">
 
 # rainplate • [![ci](https://github.com/whitenois3/rainplate/actions/workflows/ci.yaml/badge.svg)](https://github.com/whitenois3/rainplate/actions/workflows/ci.yaml) ![license](https://img.shields.io/badge/license-Unlicense-darkgrey) ![version](https://img.shields.io/github/package-json/v/whitenois3/rainplate)
 
