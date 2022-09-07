@@ -14,9 +14,9 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
+      <Html style={{height: "100%"}} lang="en">
         <Head>{CssBaseline.flush()}</Head>
-        <body>
+        <body style={{height: "100%"}}>
           <Main />
           <NextScript />
         </body>
