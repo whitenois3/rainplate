@@ -6,14 +6,16 @@ const Navbar = () => {
         <Flex flexDir="row" justifyContent="space-between" gap={2} alignItems='center' style={{ paddingTop: '2em' }}>
             <Heading
                 paddingY={2}
+                paddingLeft={4}
                 textDecoration="none"
                 as="h1"
                 textColor="white.500"
                 fontWeight="bold"
+                css={{ userSelect: 'none', pointerEvents: 'none' }}
             >
                 Rainplate
             </Heading>
-            <Box>
+            <Box paddingRight={8}>
                 <ConnectButton />
             </Box>
         </Flex>
